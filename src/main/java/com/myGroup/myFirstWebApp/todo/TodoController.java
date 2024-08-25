@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
@@ -45,6 +42,12 @@ public class TodoController {
 
         todoService.addTodo(todo.getUserName(), todo.getDescription(), todo.getDueDate());
         return "redirect:todos-list";
+    }
+
+    @RequestMapping(value = "delete-todo/{id}", method = RequestMethod.GET)
+    public String deleteTodo(@PathVariable String id) {
+        todoService.deleteById(id);
+        return "redirect:/todos-list";
     }
 
     private Todo todoFormBackingObject(String username) {

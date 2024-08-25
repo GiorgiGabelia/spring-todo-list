@@ -17,17 +17,13 @@ public class TodoService {
         todoList.add(new Todo(1, "givi", "Learn Java", LocalDate.of(2024, 10, 10)));
         todoList.add(new Todo(2, "givi", "Learn Spring", LocalDate.of(2024, 11, 5)));
         todoList.add(new Todo(3, "gio", "Learn C", LocalDate.of(2024, 12, 2)));
+        todoList.add(new Todo(4, "gio", "Learn C++", LocalDate.of(2024, 12, 2)));
+        todoList.add(new Todo(5, "gio", "Learn B--", LocalDate.of(2024, 12, 2)));
     }
 
     public ArrayList<Todo> findByUserName(String userName) throws InvalidParameterException {
-        ArrayList<Todo> todosForUser = todoList.stream().filter(todo -> todo.getUserName().equals(userName))
+        return todoList.stream().filter(todo -> todo.getUserName().equals(userName))
                 .collect(Collectors.toCollection(ArrayList::new));
-
-        if (todosForUser.isEmpty()) {
-            throw new InvalidParameterException("No todo list found for that mf");
-        }
-
-        return todosForUser;
     }
 
     public void addTodo(
@@ -43,5 +39,9 @@ public class TodoService {
         );
 
         todoList.add(newTodo);
+    }
+
+    public void deleteById(String id) {
+        todoList.removeIf(todo -> Long.toString(todo.getId()).equals(id));
     }
 }
