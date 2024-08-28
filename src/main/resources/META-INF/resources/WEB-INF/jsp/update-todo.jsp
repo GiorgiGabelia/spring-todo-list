@@ -8,13 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create new todo</title>
-    <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <title>Update todo</title>
+    <%--TODO: why tf this doesn't work without absolute path??--%>
+    <link href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
-    <h1>Add a new todo</h1>
+    <h1>Update to do</h1>
 
     <%--@elvariable id="todo" type="com.myGroup.myFirstWebApp.todo.Todo"--%>
     <form:form method="post" modelAttribute="todo">
@@ -40,12 +41,13 @@
             <form:errors path="dueDate"/>
         </p>
 
-        <button type="submit" class="btn btn-success">Add todo</button>
+        <button type="submit" class="btn btn-success">Update todo</button>
     </form:form>
 
 </div>
 
-<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+<%--TODO: why tf this doesn't work without absolute path??--%>
+<script src="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>

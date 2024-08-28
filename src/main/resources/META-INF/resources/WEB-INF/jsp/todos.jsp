@@ -31,6 +31,7 @@
                             <th>Completed</th>
                             <th>Due date</th>
                             <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,10 @@
                                 <%-- TODO: how can we use DELETE Method here instead?--%>
                             <td>
                                 <a href="delete-todo/${todo.id}" class="btn btn-danger">Remove</a>
+                            </td>
+
+                            <td>
+                                <a href="update-todo/${todo.id}" class="btn btn-secondary">Edit</a>
                             </td>
                         </tr>
                         </tbody>

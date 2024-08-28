@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.security.InvalidParameterException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -26,6 +27,11 @@ public class TodoService {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    public Optional<Todo> findById(long id) throws InvalidParameterException {
+        return todoList.stream().filter(todo -> todo.getId() == id).findFirst();
+    }
+
+
     public void addTodo(
             String userName,
             String description,
@@ -43,5 +49,11 @@ public class TodoService {
 
     public void deleteById(String id) {
         todoList.removeIf(todo -> Long.toString(todo.getId()).equals(id));
+    }
+
+    public void updateById(String id, String description, LocalDate dueDate) {
+        var todo = findById(Long.parseLong(id));
+
+
     }
 }
