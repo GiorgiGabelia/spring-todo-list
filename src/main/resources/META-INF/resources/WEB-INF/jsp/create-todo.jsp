@@ -19,26 +19,32 @@
     <%--@elvariable id="todo" type="com.myGroup.myFirstWebApp.todo.Todo"--%>
     <form:form method="post" modelAttribute="todo">
 
-        <label for="description">Description</label>
-        <form:input path="description"
-                    id="description"
-                    required="required"
-                    type="text"
-                    placeholder="Describe this task"
-                    style="display: block"/>
-        <p class="alert-danger">
-            <form:errors path="description"/>
-        </p>
+        <fieldset>
+            <form:label path="description">Description</form:label>
+            <form:input path="description"
+                        id="description"
+                        required="required"
+                        type="text"
+                        placeholder="Describe this task"
+                        style="display: block"/>
+            <p class="alert-danger">
+                <form:errors path="description"/>
+            </p>
+        </fieldset>
 
-        <label for="dueDate">Due date</label>
-        <form:input path="dueDate"
-                    id="dueDate"
-                    required="required"
-                    type="date"
-                    style="display: block"/>
-        <p class="alert-danger">
-            <form:errors path="dueDate"/>
-        </p>
+
+        <fieldset>
+            <form:label path="dueDate">Due date</form:label>
+            <form:input path="dueDate"
+                        id="dueDate"
+                        required="required"
+                        type="date"
+                        style="display: block"/>
+            <p class="alert-danger">
+                <form:errors path="dueDate"/>
+            </p>
+
+        </fieldset>
 
         <button type="submit" class="btn btn-success">Add todo</button>
     </form:form>
