@@ -6,7 +6,6 @@ import java.security.InvalidParameterException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -43,7 +42,7 @@ public class TodoService {
                 description,
                 dueDate
         );
-
+        System.out.println(newTodo);
         todoList.add(newTodo);
     }
 
@@ -51,9 +50,4 @@ public class TodoService {
         todoList.removeIf(todo -> Long.toString(todo.getId()).equals(id));
     }
 
-    public void updateById(String id, String description, LocalDate dueDate) {
-        var todo = findById(Long.parseLong(id));
-
-
-    }
 }
