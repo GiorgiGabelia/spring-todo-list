@@ -3,7 +3,7 @@ package com.myGroup.myFirstWebApp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// step 22
+// step 34
 @SpringBootApplication
 public class MyFirstWebAppApplication {
 

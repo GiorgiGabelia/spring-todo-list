@@ -1,5 +1,6 @@
 package com.myGroup.myFirstWebApp.todo;
 
+import com.myGroup.myFirstWebApp.login.WelcomeController;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,8 +22,10 @@ public class TodoController {
     }
 
     @RequestMapping(value = "todos-list", method = RequestMethod.GET)
-    public String todoPage(@ModelAttribute("username") String username, ModelMap model) {
-        ArrayList<Todo> todos = todoService.findByUserName(username);
+    public String todoPage(ModelMap model) {
+        if (model.get("username") == null) model.put("username", WelcomeController.getLoggedInUsername());
+
+        ArrayList<Todo> todos = todoService.findByUserName(WelcomeController.getLoggedInUsername());
         model.put("todos", todos);
         return "todos";
     }
